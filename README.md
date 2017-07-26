@@ -1,0 +1,1 @@
+This is just a place for me to play with interesting math questions in multiple disciplines. I don't plan on making any meaningful advancements in research with any of this, I just want a good record of my thought processes. 
