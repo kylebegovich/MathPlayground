@@ -13,6 +13,23 @@ def collatz_step(n):
         return 3*n + 1
 
 
+def kyle_collatz_step_3s(n):
+    if n % 3 == 0:
+        return n // 3
+    elif n % 3 == 1:
+        return n * 7 - 1  # definitely divisible by 3, since the extra 1 will become an extra 6
+    else:
+        return n * 5 - 1  # definitely divisible by 3, since the extra 2 will become an extra 9
+
+
+def kyle_collatz_step_2s(n):
+    # is dumb, 3 is cyclic: 3->6->3->...
+    if n % 2 == 0:
+        return n//2
+    else:
+        return 3*n - 2
+
+
 def add_all(a_list):
     for elem in a_list:
         if elem not in already_found:
@@ -31,7 +48,7 @@ def print_chain(start):
             print(start, "pow of 2!")
         else:
             print(start)
-        start = collatz_step(start)
+        start = kyle_collatz_step_2s(start)
     print(1, "\nDone, nothing miraculous this time :(")
 
 
@@ -73,7 +90,7 @@ def iterate_through(range_of_nums):
             steps = [curr]
             map_list = [(curr, count)]
             while curr not in already_found:
-                curr = collatz_step(curr)
+                curr = kyle_collatz_step_2s(curr)
                 steps.append(curr)
                 count += 1
 
