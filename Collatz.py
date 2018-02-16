@@ -3,7 +3,7 @@ import sys
 
 already_found = {1}
 found_map = {1: 3}
-pows_of_2 = {1}
+init_gen_seq = {1}
 
 
 def collatz_step(n):
@@ -13,16 +13,36 @@ def collatz_step(n):
         return 3*n + 1
 
 
-def kyle_collatz_step_3s(n):
+def new1_step(n):
+    # seems to cycle somewhere...
+
     if n % 3 == 0:
         return n // 3
     elif n % 3 == 1:
-        return n * 7 - 1  # definitely divisible by 3, since the extra 1 will become an extra 6
+        return n * 5 + 1  # definitely divisible by 3, since the extra 1 will become an extra 6
     else:
         return n * 5 - 1  # definitely divisible by 3, since the extra 2 will become an extra 9
 
 
-def kyle_collatz_step_2s(n):
+def new2_step(n):
+    if n % 3 == 0:
+        return n // 3
+    elif n % 3 == 1:
+        return (n * 2) + 1  # definitely divisible by 3, since the extra 1 will become an extra 3
+    else:
+        return (n * 5) - 1  # definitely divisible by 3, since the extra 2 will become an extra 9
+
+
+def new3_step(n):
+    if n % 2 == 0:
+        return n // 2
+    elif n % 3 == 0:
+        return n // 3
+    else:
+        return n * 5 + 1  # definitely divisible by 2, since the extra 1 will become an extra 6
+
+
+def bad_collatz_step(n):
     # is dumb, 3 is cyclic: 3->6->3->...
     if n % 2 == 0:
         return n//2
@@ -42,14 +62,14 @@ def add_all_map(a_list):
             found_map[elem[0]] = elem[1]
 
 
-def print_chain(start):
+def print_chain(start, step_func):
     while start != 1:
-        if start in pows_of_2:
-            print(start, "pow of 2!")
+        if start in init_gen_seq:
+            print(start, "from init generated sequence (powers of something)")
         else:
             print(start)
-        start = kyle_collatz_step_2s(start)
-    print(1, "\nDone, nothing miraculous this time :(")
+        start = step_func(start)
+    print(1, "done!\n")
 
 
 def format_time(input_seconds):
@@ -80,7 +100,7 @@ def prime_sieve(n):
     return [2] + [2 * i + 1 for i in range(1, n // 2) if sieve[i]]
 
 
-def iterate_through(range_of_nums):
+def iterate_through(range_of_nums, step_func):
     """returns longest chain, does the thing to the globals and such"""
     longest_chain = (1, 3)
     for i in range_of_nums:
@@ -90,7 +110,7 @@ def iterate_through(range_of_nums):
             steps = [curr]
             map_list = [(curr, count)]
             while curr not in already_found:
-                curr = kyle_collatz_step_2s(curr)
+                curr = step_func(curr)
                 steps.append(curr)
                 count += 1
 
@@ -114,11 +134,20 @@ def iterate_through(range_of_nums):
 
 
 def main():
+
+    step_func = collatz_step  # thing to change when changing operations
+
     L = 20
     for i in range(1, L):
-        already_found.add(2**i)
-        found_map[2**i] = i
-        pows_of_2.add(2**i)
+        if step_func == new1_step or step_func == new2_step or step_func == new3_step:
+            already_found.add(3 ** i)
+            found_map[3 ** i] = i
+            init_gen_seq.add(3 ** i)
+
+        if step_func == collatz_step or step_func == new3_step:
+            already_found.add(2 ** i)
+            found_map[2 ** i] = i
+            init_gen_seq.add(2 ** i)
 
     if str.isdigit(sys.argv[-1]):
         L = int(sys.argv[-1])
@@ -127,13 +156,13 @@ def main():
     start_time = time()
     longest_chain = (1, 3)
     if sys.argv[-2] == "-primes":
-        longest_chain = iterate_through(prime_sieve(2**L))
+        longest_chain = iterate_through(prime_sieve(2**L), step_func)
     else:
-        longest_chain = iterate_through(range(1, 2**L + 1))
+        longest_chain = iterate_through(range(1, 2**L + 1), step_func)
 
-    print("there are %i elements found converging to 1" % len(already_found))
     print(longest_chain)
-    print_chain(longest_chain[0])
+    print_chain(longest_chain[0], step_func)
+    print("there are %i elements found converging to 1" % len(already_found))
 
     end_time = time()
     print(format_time(end_time - start_time))
