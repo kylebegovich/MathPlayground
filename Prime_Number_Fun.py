@@ -28,11 +28,14 @@ def mersenne_prime_sieve(n):
     if n <= 1:
         return []
 
-    sieve = [True] * n
+    sieve = [(2**i) - 1 for i in range(n)]
     for i in range(3, int(n ** 0.5) + 1, 2):
-        if sieve[i // 2]:
-            sieve[i * i // 2::i] = [False] * ((n - i * i - 1) // (2 * i) + 1)
-    return [2 * i + 1 for i in range(n) if sieve[i]]
+        for j in range(len(sieve)):
+            elem = sieve[j]
+            if (elem / i).is_integer():
+                sieve[j] = -1
+
+    return [sieve[i] for i in range(len(sieve)) if sieve[i] != -1]
 
 
 def test(n):
@@ -41,4 +44,4 @@ def test(n):
     print(mersenne_prime_sieve(n))
 
 
-test(20)
+test(25)
