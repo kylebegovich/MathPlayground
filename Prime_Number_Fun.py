@@ -38,10 +38,23 @@ def mersenne_prime_sieve(n):
     return [sieve[i] for i in range(len(sieve)) if sieve[i] != -1]
 
 
+def find_twins_from_primes(primes):
+    twins = []
+    app = twins.append
+    for i in range(len(primes) - 1):
+        if primes[i] +2 == primes[i+1]:
+            app((primes[i], primes[i+1]))
+
+    return twins
+
+
 def test(n):
-    print(prime_sieve(2**n))
+    primes = prime_sieve(2**n)
+    print(primes)
     print("\nbreak\n")
-    print(mersenne_prime_sieve(n))
+    # print(mersenne_prime_sieve(n))
+
+    print(find_twins_from_primes(primes))
 
 
 test(25)
