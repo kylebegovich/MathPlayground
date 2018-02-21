@@ -49,14 +49,23 @@ def find_twins_from_primes(primes):
 
 def find_cousins_from_primes(primes):
     twins = []
+    app = twins.append
 
     if 3 in primes and 7 in primes:
-        twins.append((3, 7))
-        # since 5 is between them, they aren't one off from another
+        app((3, 7)) # since 5 is between them, they aren't one off from another, and we need this condition
 
-    app = twins.append
     for i in range(len(primes) - 1):
         if primes[i] + 4 == primes[i+1]:
+            app((primes[i], primes[i+1]))
+
+    return twins
+
+
+def find_sexys_from_primes(primes):
+    twins = []
+    app = twins.append
+    for i in range(len(primes) - 2):
+        if primes[i] + 6 == primes[i+1] or primes[i] + 6 == primes[i+2]:
             app((primes[i], primes[i+1]))
 
     return twins
