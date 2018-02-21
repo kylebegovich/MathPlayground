@@ -20,7 +20,6 @@ def prime_sieve(n):
     return [2] + [2 * i + 1 for i in range(1, n // 2) if sieve[i]]
 
 
-# TODO figure out how the above version works and make this one work
 def mersenne_prime_sieve(n):
     """
     return a list of mersenne primes up to 2^n - 1
@@ -42,7 +41,22 @@ def find_twins_from_primes(primes):
     twins = []
     app = twins.append
     for i in range(len(primes) - 1):
-        if primes[i] +2 == primes[i+1]:
+        if primes[i] + 2 == primes[i+1]:
+            app((primes[i], primes[i+1]))
+
+    return twins
+
+
+def find_cousins_from_primes(primes):
+    twins = []
+
+    if 3 in primes and 7 in primes:
+        twins.append((3, 7))
+        # since 5 is between them, they aren't one off from another
+
+    app = twins.append
+    for i in range(len(primes) - 1):
+        if primes[i] + 4 == primes[i+1]:
             app((primes[i], primes[i+1]))
 
     return twins
