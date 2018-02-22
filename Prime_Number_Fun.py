@@ -38,37 +38,39 @@ def mersenne_prime_sieve(n):
 
 
 def find_twins_from_primes(primes):
-    twins = []
-    app = twins.append
+    out_list = []
+    app = out_list.append
     for i in range(len(primes) - 1):
         if primes[i] + 2 == primes[i+1]:
             app((primes[i], primes[i+1]))
 
-    return twins
+    return out_list
 
 
 def find_cousins_from_primes(primes):
-    twins = []
-    app = twins.append
+    out_list = []
+    app = out_list.append
 
     if 3 in primes and 7 in primes:
-        app((3, 7)) # since 5 is between them, they aren't one off from another, and we need this condition
+        app((3, 7))  # since 5 is between them, they aren't one off from another, and we need this condition
 
     for i in range(len(primes) - 1):
         if primes[i] + 4 == primes[i+1]:
             app((primes[i], primes[i+1]))
 
-    return twins
+    return out_list
 
 
 def find_sexys_from_primes(primes):
-    twins = []
-    app = twins.append
+    out_list = []
+    app = out_list.append
     for i in range(len(primes) - 2):
-        if primes[i] + 6 == primes[i+1] or primes[i] + 6 == primes[i+2]:
+        if primes[i] + 6 == primes[i+1]:
             app((primes[i], primes[i+1]))
+        elif primes[i] + 6 == primes[i+2]:
+            app((primes[i], primes[i+2]))
 
-    return twins
+    return out_list
 
 
 def test(n):
@@ -77,7 +79,9 @@ def test(n):
     print("\nbreak\n")
     # print(mersenne_prime_sieve(n))
 
-    print(find_twins_from_primes(primes))
+    print("\nTwins:\n", find_twins_from_primes(primes))
+    print("\nCousins:\n", find_cousins_from_primes(primes))
+    print("\nSexys:\n", find_sexys_from_primes(primes))
 
 
-test(25)
+test(12)
