@@ -155,7 +155,7 @@ def main():
     print("starting")
     start_time = time()
     longest_chain = (1, 3)
-    if sys.argv[-2] == "-primes":
+    if len(sys.argv) > 2 and sys.argv[-2] == "-primes":
         longest_chain = iterate_through(prime_sieve(2**L), step_func)
     else:
         longest_chain = iterate_through(range(1, 2**L + 1), step_func)
@@ -169,3 +169,10 @@ def main():
 
 
 main()
+
+
+"""
+to consider:
+there is a proof that for any k, there exists a sequence of k composite numbers in a row (without a prime in between),
+there may ba a similar proof for number of steps it takes in collatz... and we just might care
+"""
