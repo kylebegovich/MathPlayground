@@ -107,38 +107,38 @@ def iterate_through(range_of_nums, step_func):
     longest_chain = (1, 3)
     for i in range_of_nums:
         count = 0
-        if i not in already_found:
-            curr = i
-            steps = [curr]
-            map_list = [(curr, count)]
-            while curr not in already_found:
-                curr = step_func(curr)
-                steps.append(curr)
-                count += 1
+        # if i not in already_found:  # this gonna make it hella slow
+        curr = i
+        steps = [curr]
+        map_list = [(curr, count)]
+        while curr not in already_found:
+            curr = step_func(curr)
+            steps.append(curr)
+            count += 1
 
-            # supposed to add the mapped elems correctly
-            step_counter = found_map[steps[-1]]
-            for elem in steps[::-1]:
-                found_map[elem] = step_counter
-                step_counter += 1
+        # supposed to add the mapped elems correctly
+        step_counter = found_map[steps[-1]]
+        for elem in steps[::-1]:
+            found_map[elem] = step_counter
+            step_counter += 1
 
-            count += found_map[curr]
+        count += found_map[curr]
 
-            if len(steps) > longest_chain[1]:
-                longest_chain = (i, len(steps))
+        if len(steps) > longest_chain[1]:
+            longest_chain = (i, len(steps))
 
-            if len(steps) == last_len:
-                if (i-1, last_len) not in matching_lens:
-                    matching_lens.append((i-1, last_len))
+        if len(steps) == last_len:
+            if (i-1, last_len) not in matching_lens:
+                matching_lens.append((i-1, last_len))
 
-                matching_lens.append((i, last_len))
+            matching_lens.append((i, last_len))
 
-            last_len = len(steps)
+        last_len = len(steps)
 
-            add_all(steps)
-            add_all_map(map_list)
+        add_all(steps)
+        add_all_map(map_list)
 
-        # print("%i took %i steps" % (i, found_map[i]))
+        print("%i took %i steps" % (i, found_map[i]))
 
     return longest_chain
 
@@ -174,8 +174,8 @@ def main():
     print_chain(longest_chain[0], step_func)
     print("there are %i elements found converging to 1" % len(already_found))
 
-    for elem in matching_lens:
-        print(elem)
+    for elem in sorted(found_map):
+        print(elem, "took", found_map[elem], "steps")
 
     end_time = time()
     print(format_time(end_time - start_time))
