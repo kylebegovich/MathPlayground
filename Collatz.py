@@ -4,6 +4,7 @@ import sys
 already_found = {1}
 found_map = {1: 3}
 init_gen_seq = {1}
+matching_lens = []
 
 
 def collatz_step(n):
@@ -102,6 +103,7 @@ def prime_sieve(n):
 
 def iterate_through(range_of_nums, step_func):
     """returns longest chain, does the thing to the globals and such"""
+    last_len = -1
     longest_chain = (1, 3)
     for i in range_of_nums:
         count = 0
@@ -114,7 +116,7 @@ def iterate_through(range_of_nums, step_func):
                 steps.append(curr)
                 count += 1
 
-            # supposed to add the mapped elems correctle
+            # supposed to add the mapped elems correctly
             step_counter = found_map[steps[-1]]
             for elem in steps[::-1]:
                 found_map[elem] = step_counter
@@ -125,10 +127,18 @@ def iterate_through(range_of_nums, step_func):
             if len(steps) > longest_chain[1]:
                 longest_chain = (i, len(steps))
 
+            if len(steps) == last_len:
+                if (i-1, last_len) not in matching_lens:
+                    matching_lens.append((i-1, last_len))
+
+                matching_lens.append((i, last_len))
+
+            last_len = len(steps)
+
             add_all(steps)
             add_all_map(map_list)
 
-        print("%i took %i steps" % (i, found_map[i]))
+        # print("%i took %i steps" % (i, found_map[i]))
 
     return longest_chain
 
@@ -163,6 +173,9 @@ def main():
     print(longest_chain)
     print_chain(longest_chain[0], step_func)
     print("there are %i elements found converging to 1" % len(already_found))
+
+    for elem in matching_lens:
+        print(elem)
 
     end_time = time()
     print(format_time(end_time - start_time))
