@@ -2,7 +2,6 @@ from timeit import default_timer as time
 import sys
 
 already_found = {1}
-found_map = {1: 0}
 init_gen_seq = {1}
 matching_lens = []
 
@@ -57,10 +56,11 @@ def add_all(a_list):
             already_found.add(elem)
 
 
-def add_all_map(a_list):
+def add_all_map(a_list, found_map):
     for elem in a_list:
         if elem[0] not in found_map:
             found_map[elem[0]] = elem[1]
+    return found_map
 
 
 def print_chain(start, step_func):
@@ -101,75 +101,83 @@ def prime_sieve(n):
     return [2] + [2 * i + 1 for i in range(1, n // 2) if sieve[i]]
 
 
-def iterate_through(range_of_nums, step_func):
+def iterate_through(range_of_nums, step_func, found_map):
     """returns longest chain, does the thing to the globals and such"""
     last_len = -1
     longest_chain = (1, 0)
     for i in range_of_nums:
         count = 0
-        # if i not in already_found:  # this gonna make it hella slow
-        curr = i
-        steps = [curr]
-        map_list = [(curr, count)]
-        while curr not in already_found:
-            curr = step_func(curr)
-            steps.append(curr)
-            count += 1
+        if i not in already_found:  # this gonna make it hella slow
+            curr = i
+            steps = [curr]
+            map_list = [(curr, count)]
+            while curr not in already_found:
+                curr = step_func(curr)
+                steps.append(curr)
+                count += 1
 
-        # supposed to add the mapped elems correctly
-        step_counter = found_map[steps[-1]]
-        for elem in steps[::-1]:
-            found_map[elem] = step_counter
-            step_counter += 1
+            # adds the elems mapped to how many steps it took
+            step_counter = found_map[steps[-1]]
+            for elem in steps[::-1]:
+                found_map[elem] = step_counter
+                step_counter += 1
 
-        count += found_map[curr]
+            count += found_map[curr]
 
-        if len(steps) > longest_chain[1]:
-            longest_chain = (i, len(steps))
+            if len(steps) > longest_chain[1]:
+                longest_chain = (i, len(steps))
 
-        if len(steps) == last_len:
-            if (i-1, last_len) not in matching_lens:
-                matching_lens.append((i-1, last_len))
+            if len(steps) == last_len:
+                if (i-1, last_len) not in matching_lens:
+                    matching_lens.append((i-1, last_len))
 
-            matching_lens.append((i, last_len))
+                matching_lens.append((i, last_len))
 
-        last_len = len(steps)
+            last_len = len(steps)
 
-        add_all(steps)
-        add_all_map(map_list)
+            add_all(steps)
+            found_map = add_all_map(map_list, found_map)
 
         print("%i took %i steps" % (i, found_map[i]))
 
-    return longest_chain
+    return longest_chain, found_map
 
 
-def longest_chain_step_equiv_neighbors(upper_bound):
+def longest_chain_step_equiv_neighbors(fmap, upper_bound):
     # assumes found map is full and correct
     last_elem = -1
     last_steps = -1
     count = 0
     max_count = 0
-    best = 0, 0
+    best = (0, 0)
 
-    for key in found_map:
+    for key in fmap:
+        print(key)
         if key > upper_bound:
+            print("b1")
             return best
         if key != last_elem + 1:
+            print("b2")
             continue
-        if found_map[key] == last_steps:
+        if fmap[key] == last_steps:
+            print("b3")
             count += 1
         elif count > max_count:
+            print("b4")
             max_count = count
-            best = key-count, last_steps
+            count = 0
+            best = (key-count, last_steps)
+
+        print("default")
 
         last_elem = key
-        last_steps = found_map[key]
+        last_steps = fmap[key]
 
     return best
 
 
 def main():
-
+    found_map = {1: 0}
     step_func = collatz_step  # thing to change when changing operations
 
     L = 20
@@ -191,15 +199,15 @@ def main():
     start_time = time()
     longest_chain = (1, 3)
     if len(sys.argv) > 2 and sys.argv[-2] == "-primes":
-        longest_chain = iterate_through(prime_sieve(2**L), step_func)
+        longest_chain, found_map = iterate_through(prime_sieve(2**L), step_func, found_map)
     else:
-        longest_chain = iterate_through(range(1, 2**L + 1), step_func)
+        longest_chain, found_map = iterate_through(range(1, 2**L + 1), step_func, found_map)
 
     print(longest_chain)
     print_chain(longest_chain[0], step_func)
     print("there are %i elements found converging to 1" % len(already_found))
 
-    print(longest_chain_step_equiv_neighbors(2**L))
+    print(longest_chain_step_equiv_neighbors(found_map, 2**L))
 
     end_time = time()
     print(format_time(end_time - start_time))
@@ -217,4 +225,5 @@ there may ba a similar proof for number of steps it takes in collatz... and we j
     45 -> 136-> 68 -> 34 -> 17 ...
     46 -> 23 -> 70 -> 35 -> 106-> 53 -> 160-> 80 -> 40 -> 20 -> ...
 and you will note some other neighbors that converge in the same number of steps that appear, such as 34,35 and 52,53
+    418 ... 421 all have 40 steps
 """
