@@ -2,7 +2,7 @@ from timeit import default_timer as time
 import sys
 
 already_found = {1}
-found_map = {1: 3}
+found_map = {1: 0}
 init_gen_seq = {1}
 matching_lens = []
 
@@ -104,7 +104,7 @@ def prime_sieve(n):
 def iterate_through(range_of_nums, step_func):
     """returns longest chain, does the thing to the globals and such"""
     last_len = -1
-    longest_chain = (1, 3)
+    longest_chain = (1, 0)
     for i in range_of_nums:
         count = 0
         # if i not in already_found:  # this gonna make it hella slow
@@ -143,6 +143,31 @@ def iterate_through(range_of_nums, step_func):
     return longest_chain
 
 
+def longest_chain_step_equiv_neighbors(upper_bound):
+    # assumes found map is full and correct
+    last_elem = -1
+    last_steps = -1
+    count = 0
+    max_count = 0
+    best = 0, 0
+
+    for key in found_map:
+        if key > upper_bound:
+            return best
+        if key != last_elem + 1:
+            continue
+        if found_map[key] == last_steps:
+            count += 1
+        elif count > max_count:
+            max_count = count
+            best = key-count, last_steps
+
+        last_elem = key
+        last_steps = found_map[key]
+
+    return best
+
+
 def main():
 
     step_func = collatz_step  # thing to change when changing operations
@@ -174,8 +199,7 @@ def main():
     print_chain(longest_chain[0], step_func)
     print("there are %i elements found converging to 1" % len(already_found))
 
-    for elem in sorted(found_map):
-        print(elem, "took", found_map[elem], "steps")
+    print(longest_chain_step_equiv_neighbors(2**L))
 
     end_time = time()
     print(format_time(end_time - start_time))
@@ -187,5 +211,10 @@ main()
 """
 to consider:
 there is a proof that for any k, there exists a sequence of k composite numbers in a row (without a prime in between),
-there may ba a similar proof for number of steps it takes in collatz... and we just might care
+there may ba a similar proof for number of steps it takes in collatz... and we just might care, ex.
+44, 45, 46 all take 16 steps:
+    44 -> 22 -> 11 -> 34 -> 17 -> 52 -> 26 -> 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
+    45 -> 136-> 68 -> 34 -> 17 ...
+    46 -> 23 -> 70 -> 35 -> 106-> 53 -> 160-> 80 -> 40 -> 20 -> ...
+and you will note some other neighbors that converge in the same number of steps that appear, such as 34,35 and 52,53
 """
