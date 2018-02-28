@@ -247,6 +247,14 @@ if __name__ == "__main__":
         print("\n", ADDITIONAL_HELP_MSG, "\n", USAGE_STR)
         exit(0)
 
+    if "-sv" in args:
+        index = find_element_in_list("-sv", args)
+        if index is not None and args[index+1].isdigit():
+            print_chain(int(args[index+1]), collatz_step)
+        else:
+            print(USAGE_STR)
+        exit(0)
+
     if "-h" in args or "--help" in args:
         print(USAGE_STR)
         exit(0)
@@ -255,7 +263,7 @@ if __name__ == "__main__":
     limit_loc = find_element_in_list("--limit", args)
     if l_loc is not None or limit_loc is not None:
         index = l_loc if (l_loc is not None) else limit_loc
-        if str(args[index+1]).isdigit():
+        if args[index+1].isdigit():
             L = int(args[index+1])
 
     if "-p" in args or "--primes" in args:
