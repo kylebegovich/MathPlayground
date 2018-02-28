@@ -78,13 +78,17 @@ def add_all_map(a_list):
 
 
 def print_chain(start, step_func):
+    count = 0
     while start != 1:
         if start in init_gen_seq:
             print(start, "from init generated sequence (powers of something)")
         else:
             print(start)
         start = step_func(start)
+        count += 1
+
     print(1, "done!\n")
+    return count
 
 
 def format_time(input_seconds):
@@ -250,7 +254,8 @@ if __name__ == "__main__":
     if "-sv" in args:
         index = find_element_in_list("-sv", args)
         if index is not None and args[index+1].isdigit():
-            print_chain(int(args[index+1]), collatz_step)
+            steps = print_chain(int(args[index+1]), collatz_step)
+            print("total steps =", steps)
         else:
             print(USAGE_STR)
         exit(0)

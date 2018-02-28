@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2d5845-3a9a-4a24-8114-af5139b0292d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collatz.py" afterPath="$PROJECT_DIR$/Collatz.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +20,8 @@
       <file leaf-file-name="Collatz.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Collatz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="252" column="56" lean-forward="false" selection-start-line="252" selection-start-column="56" selection-end-line="252" selection-end-column="56" />
+            <state relative-caret-position="227">
+              <caret line="257" column="40" lean-forward="false" selection-start-line="257" selection-start-column="40" selection-end-line="257" selection-end-column="40" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#107#235#0" expanded="false" />
@@ -29,8 +30,8 @@
                 <element signature="e#1042#1305#0" expanded="false" />
                 <element signature="e#1330#1515#0" expanded="false" />
                 <element signature="e#1547#1655#0" expanded="false" />
-                <element signature="e#2212#2488#0" expanded="false" />
-                <element signature="e#2614#3168#0" expanded="false" />
+                <element signature="e#2263#2539#0" expanded="false" />
+                <element signature="e#2665#3219#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -348,8 +349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Collatz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="252" column="56" lean-forward="false" selection-start-line="252" selection-start-column="56" selection-end-line="252" selection-end-column="56" />
+        <state relative-caret-position="227">
+          <caret line="257" column="40" lean-forward="false" selection-start-line="257" selection-start-column="40" selection-end-line="257" selection-end-column="40" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#107#235#0" expanded="false" />
@@ -358,8 +359,8 @@
             <element signature="e#1042#1305#0" expanded="false" />
             <element signature="e#1330#1515#0" expanded="false" />
             <element signature="e#1547#1655#0" expanded="false" />
-            <element signature="e#2212#2488#0" expanded="false" />
-            <element signature="e#2614#3168#0" expanded="false" />
+            <element signature="e#2263#2539#0" expanded="false" />
+            <element signature="e#2665#3219#0" expanded="false" />
           </folding>
         </state>
       </provider>
