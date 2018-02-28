@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2d5845-3a9a-4a24-8114-af5139b0292d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collatz.py" afterPath="$PROJECT_DIR$/Collatz.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,12 +19,18 @@
       <file leaf-file-name="Collatz.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Collatz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="201" column="51" lean-forward="false" selection-start-line="201" selection-start-column="51" selection-end-line="201" selection-end-column="51" />
+            <state relative-caret-position="212">
+              <caret line="252" column="56" lean-forward="false" selection-start-line="252" selection-start-column="56" selection-end-line="252" selection-end-column="56" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#1738#2014#0" expanded="false" />
-                <element signature="e#2140#2694#0" expanded="false" />
+                <element signature="e#107#235#0" expanded="false" />
+                <element signature="e#631#698#0" expanded="false" />
+                <element signature="e#723#1017#0" expanded="false" />
+                <element signature="e#1042#1305#0" expanded="false" />
+                <element signature="e#1330#1515#0" expanded="false" />
+                <element signature="e#1547#1655#0" expanded="false" />
+                <element signature="e#2212#2488#0" expanded="false" />
+                <element signature="e#2614#3168#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -34,7 +39,7 @@
       <file leaf-file-name="Prime_Number_Fun.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Prime_Number_Fun.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
+            <state relative-caret-position="450">
               <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
               <folding />
             </state>
@@ -67,9 +72,11 @@
       <find>collatz_step</find>
       <find>pow</find>
       <find>print_chain</find>
-      <find>iterate_through</find>
       <find>siev</find>
       <find>-&gt;</find>
+      <find>add_all_map</find>
+      <find>iterate_through</find>
+      <find>found_map</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,7 +117,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,6 +129,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -137,7 +144,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.google">
+  <component name="RunManager" selected="Python.Collatz">
+    <configuration name="Collatz" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MathPlayground" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Collatz.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="google" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -172,14 +196,16 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.twitter" />
       <item index="1" class="java.lang.String" itemvalue="Python.google" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Collatz" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.google" />
-        <item index="1" class="java.lang.String" itemvalue="Python.twitter" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.Collatz" />
+        <item index="1" class="java.lang.String" itemvalue="Python.google" />
+        <item index="2" class="java.lang.String" itemvalue="Python.twitter" />
       </list>
     </recent_temporary>
   </component>
@@ -206,13 +232,13 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15276752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5284016" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -228,7 +254,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -314,7 +340,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Prime_Number_Fun.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
+        <state relative-caret-position="450">
           <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
           <folding />
         </state>
@@ -322,12 +348,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Collatz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="201" column="51" lean-forward="false" selection-start-line="201" selection-start-column="51" selection-end-line="201" selection-end-column="51" />
+        <state relative-caret-position="212">
+          <caret line="252" column="56" lean-forward="false" selection-start-line="252" selection-start-column="56" selection-end-line="252" selection-end-column="56" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#1738#2014#0" expanded="false" />
-            <element signature="e#2140#2694#0" expanded="false" />
+            <element signature="e#107#235#0" expanded="false" />
+            <element signature="e#631#698#0" expanded="false" />
+            <element signature="e#723#1017#0" expanded="false" />
+            <element signature="e#1042#1305#0" expanded="false" />
+            <element signature="e#1330#1515#0" expanded="false" />
+            <element signature="e#1547#1655#0" expanded="false" />
+            <element signature="e#2212#2488#0" expanded="false" />
+            <element signature="e#2614#3168#0" expanded="false" />
           </folding>
         </state>
       </provider>
