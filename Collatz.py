@@ -1,9 +1,24 @@
 from timeit import default_timer as time
 import sys
 
+
+def find_element_in_list(element, list_element):
+    try:
+        index_element = list_element.index(element)
+        return index_element
+    except ValueError:
+        return None
+
+
 already_found = {1}
 init_gen_seq = {1}
+found_map = {1: 0}
 matching_lens = []
+L = 5
+
+USAGE_STR = "Run $ python3 Collatz.py [--primes/-p] [--help/-h] [--limit/-l  <new_lim>] or\n" \
+            "     $ python3 Collatz.py -sv (single value) <number> to show the convergence"
+ADDITIONAL_HELP_MSG = "Ran with defualt usage, if you'd like to run with additional options:"
 
 
 def collatz_step(n):
@@ -56,11 +71,10 @@ def add_all(a_list):
             already_found.add(elem)
 
 
-def add_all_map(a_list, found_map):
+def add_all_map(a_list):
     for elem in a_list:
         if elem[0] not in found_map:
             found_map[elem[0]] = elem[1]
-    return found_map
 
 
 def print_chain(start, step_func):
@@ -101,7 +115,7 @@ def prime_sieve(n):
     return [2] + [2 * i + 1 for i in range(1, n // 2) if sieve[i]]
 
 
-def iterate_through(range_of_nums, step_func, found_map):
+def iterate_through(range_of_nums, step_func):
     """returns longest chain, does the thing to the globals and such"""
     last_len = -1
     longest_chain = (1, 0)
@@ -136,11 +150,11 @@ def iterate_through(range_of_nums, step_func, found_map):
             last_len = len(steps)
 
             add_all(steps)
-            found_map = add_all_map(map_list, found_map)
+            add_all_map(map_list)
 
         print("%i took %i steps" % (i, found_map[i]))
 
-    return longest_chain, found_map
+    return longest_chain
 
 
 def longest_chain_step_equiv_neighbors(fmap, upper_bound):
@@ -176,44 +190,22 @@ def longest_chain_step_equiv_neighbors(fmap, upper_bound):
     return best
 
 
-def main():
-    found_map = {1: 0}
-    step_func = collatz_step  # thing to change when changing operations
-
-    L = 20
-    for i in range(1, L):
-        if step_func == new1_step or step_func == new2_step or step_func == new3_step:
-            already_found.add(3 ** i)
-            found_map[3 ** i] = i
-            init_gen_seq.add(3 ** i)
-
-        if step_func == collatz_step or step_func == new3_step:
-            already_found.add(2 ** i)
-            found_map[2 ** i] = i
-            init_gen_seq.add(2 ** i)
-
-    if str.isdigit(sys.argv[-1]):
-        L = int(sys.argv[-1])
+def main(range_of_vals):
+    step_func = collatz_step
 
     print("starting")
     start_time = time()
-    longest_chain = (1, 3)
-    if len(sys.argv) > 2 and sys.argv[-2] == "-primes":
-        longest_chain, found_map = iterate_through(prime_sieve(2**L), step_func, found_map)
-    else:
-        longest_chain, found_map = iterate_through(range(1, 2**L + 1), step_func, found_map)
+    longest_chain = (1, 0)
+    longest_chain = iterate_through(range_of_vals, step_func)
 
     print(longest_chain)
     print_chain(longest_chain[0], step_func)
     print("there are %i elements found converging to 1" % len(already_found))
 
-    print(longest_chain_step_equiv_neighbors(found_map, 2**L))
+    # print(longest_chain_step_equiv_neighbors(found_map, 2**L))
 
     end_time = time()
     print(format_time(end_time - start_time))
-
-
-main()
 
 
 """
@@ -227,3 +219,53 @@ there may ba a similar proof for number of steps it takes in collatz... and we j
 and you will note some other neighbors that converge in the same number of steps that appear, such as 34,35 and 52,53
     418 ... 421 all have 40 steps
 """
+
+"""
+step_func = collatz_step  # thing to change when changing operations
+
+    for i in range(1, L):
+        if step_func == new1_step or step_func == new2_step or step_func == new3_step:
+            already_found.add(3 ** i)
+            found_map[3 ** i] = i
+            init_gen_seq.add(3 ** i)
+
+        if step_func == collatz_step or step_func == new3_step:
+            already_found.add(2 ** i)
+            found_map[2 ** i] = i
+            init_gen_seq.add(2 ** i)
+
+    if str.isdigit(sys.argv[-1]):
+        L = int(sys.argv[-1])
+        """
+
+
+if __name__ == "__main__":
+    args = sys.argv
+    if len(args) == 1:
+        # this is the default behavior, just print collatz numbers with their num steps up to the default L = 5
+        main(range(1, 2**L))
+        print("\n", ADDITIONAL_HELP_MSG, "\n", USAGE_STR)
+        exit(0)
+
+    if "-h" in args or "--help" in args:
+        print(USAGE_STR)
+        exit(0)
+
+    l_loc = find_element_in_list("-l", args)
+    limit_loc = find_element_in_list("--limit", args)
+    if l_loc is not None or limit_loc is not None:
+        index = l_loc if (l_loc is not None) else limit_loc
+        if str(args[index+1]).isdigit():
+            L = int(args[index+1])
+
+    if "-p" in args or "--primes" in args:
+        # we only want to look at the primes, since their convergence is a little more wonky
+        main(prime_sieve(2 ** L))
+        exit(0)
+    if len(args) == 3:
+        main(range(1, 2 ** L))
+        exit(0)
+    else:
+        print(USAGE_STR)
+        exit(0)
+

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2d5845-3a9a-4a24-8114-af5139b0292d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collatz.py" afterPath="$PROJECT_DIR$/Collatz.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,12 +19,13 @@
       <file leaf-file-name="Collatz.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Collatz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="145" column="58" lean-forward="true" selection-start-line="145" selection-start-column="58" selection-end-line="145" selection-end-column="58" />
+            <state relative-caret-position="257">
+              <caret line="247" column="15" lean-forward="false" selection-start-line="247" selection-start-column="15" selection-end-line="247" selection-end-column="15" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#1751#2027#0" expanded="false" />
-                <element signature="e#2153#2707#0" expanded="false" />
+                <element signature="e#107#235#0" expanded="false" />
+                <element signature="e#2212#2488#0" expanded="false" />
+                <element signature="e#2614#3168#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,11 +67,11 @@
       <find>collatz_step</find>
       <find>pow</find>
       <find>print_chain</find>
-      <find>iterate_through</find>
       <find>siev</find>
       <find>-&gt;</find>
-      <find>found_map</find>
       <find>add_all_map</find>
+      <find>iterate_through</find>
+      <find>found_map</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,7 +112,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,6 +124,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -139,7 +139,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.google">
+  <component name="RunManager" selected="Python.Collatz">
+    <configuration name="Collatz" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MathPlayground" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Collatz.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="google" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -174,14 +191,16 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.twitter" />
       <item index="1" class="java.lang.String" itemvalue="Python.google" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Collatz" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.google" />
-        <item index="1" class="java.lang.String" itemvalue="Python.twitter" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.Collatz" />
+        <item index="1" class="java.lang.String" itemvalue="Python.google" />
+        <item index="2" class="java.lang.String" itemvalue="Python.twitter" />
       </list>
     </recent_temporary>
   </component>
@@ -208,7 +227,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15276752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -324,12 +343,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Collatz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="145" column="58" lean-forward="true" selection-start-line="145" selection-start-column="58" selection-end-line="145" selection-end-column="58" />
+        <state relative-caret-position="257">
+          <caret line="247" column="15" lean-forward="false" selection-start-line="247" selection-start-column="15" selection-end-line="247" selection-end-column="15" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#1751#2027#0" expanded="false" />
-            <element signature="e#2153#2707#0" expanded="false" />
+            <element signature="e#107#235#0" expanded="false" />
+            <element signature="e#2212#2488#0" expanded="false" />
+            <element signature="e#2614#3168#0" expanded="false" />
           </folding>
         </state>
       </provider>
