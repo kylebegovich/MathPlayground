@@ -91,6 +91,36 @@ def print_chain(start, step_func):
     return count
 
 
+def fancy_print_chain(start, step_func):
+    up_count = 0
+    down_count = 0
+    chain = [(start, False)]
+    app = chain.append
+    curr = start
+    while curr != 1:
+        nxt = step_func(curr)
+        dir = nxt > curr
+        if dir:
+            up_count += 1
+        else:
+            down_count += 1
+        app((nxt, dir))
+        curr = nxt
+
+    print(chain, up_count, down_count)
+
+    space_count = up_count * 2 + 3
+    print(' ' * space_count, start)
+    for elem in chain[1:]:
+        if elem[1]:
+            space_count += 2
+        else:
+            space_count -= 2
+        print(' ' * space_count, elem[0])
+
+    return up_count + down_count
+
+
 def format_time(input_seconds):
     base = "%i hours, %i minutes, %i seconds, %f milliseconds"
     millis = input_seconds / .01 % 100
@@ -195,7 +225,7 @@ def longest_chain_step_equiv_neighbors(fmap, upper_bound):
 
 
 def main(range_of_vals):
-    step_func = collatz_step
+    step_func = collatz_step  # integration of other step types no come
 
     print("starting")
     start_time = time()
@@ -254,7 +284,7 @@ if __name__ == "__main__":
     if "-sv" in args:
         index = find_element_in_list("-sv", args)
         if index is not None and args[index+1].isdigit():
-            steps = print_chain(int(args[index+1]), collatz_step)
+            steps = fancy_print_chain(int(args[index+1]), collatz_step)
             print("total steps =", steps)
         else:
             print(USAGE_STR)
