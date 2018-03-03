@@ -91,7 +91,7 @@ def print_chain(start, step_func):
     return count
 
 
-def fancy_print_chain(start, step_func):
+def fancy_print_chain_1(start, step_func):
     up_count = 0
     down_count = 0
     chain = [(start, False)]
@@ -119,6 +119,39 @@ def fancy_print_chain(start, step_func):
         print(' ' * space_count, elem[0])
 
     return up_count + down_count
+
+
+def fancy_print_chain_2(start, step_func):
+
+    count = 0
+    chain = [start]
+    curr = start
+    app = chain.append
+
+    while curr != 1:
+        nxt = step_func(curr)
+        app(nxt)
+        curr = nxt
+        count += 1
+
+    chain_sorted = sorted(chain)
+    better_chain = []
+    app = better_chain.append
+    for elem in chain:
+        app((elem, chain_sorted.index(elem)))
+
+    last_spaces = -1
+    for elem in better_chain:
+        if last_spaces != -1:
+            dif = elem[1] - last_spaces
+            if dif > 0:
+                print(' ' * last_spaces, '\\' * dif)
+            else:
+                print(' ' * elem[1], '/' * (-1 * dif))
+        print(' ' * elem[1], elem[0])
+        last_spaces = elem[1]
+
+    return count
 
 
 def format_time(input_seconds):
@@ -242,37 +275,6 @@ def main(range_of_vals):
     print(format_time(end_time - start_time))
 
 
-"""
-to consider:
-there is a proof that for any k, there exists a sequence of k composite numbers in a row (without a prime in between),
-there may ba a similar proof for number of steps it takes in collatz... and we just might care, ex.
-44, 45, 46 all take 16 steps:
-    44 -> 22 -> 11 -> 34 -> 17 -> 52 -> 26 -> 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
-    45 -> 136-> 68 -> 34 -> 17 ...
-    46 -> 23 -> 70 -> 35 -> 106-> 53 -> 160-> 80 -> 40 -> 20 -> ...
-and you will note some other neighbors that converge in the same number of steps that appear, such as 34,35 and 52,53
-    418 ... 421 all have 40 steps
-"""
-
-"""
-step_func = collatz_step  # thing to change when changing operations
-
-    for i in range(1, L):
-        if step_func == new1_step or step_func == new2_step or step_func == new3_step:
-            already_found.add(3 ** i)
-            found_map[3 ** i] = i
-            init_gen_seq.add(3 ** i)
-
-        if step_func == collatz_step or step_func == new3_step:
-            already_found.add(2 ** i)
-            found_map[2 ** i] = i
-            init_gen_seq.add(2 ** i)
-
-    if str.isdigit(sys.argv[-1]):
-        L = int(sys.argv[-1])
-        """
-
-
 if __name__ == "__main__":
     args = sys.argv
     if len(args) == 1:
@@ -284,7 +286,7 @@ if __name__ == "__main__":
     if "-sv" in args:
         index = find_element_in_list("-sv", args)
         if index is not None and args[index+1].isdigit():
-            steps = fancy_print_chain(int(args[index+1]), collatz_step)
+            steps = fancy_print_chain_2(int(args[index+1]), collatz_step)
             print("total steps =", steps)
         else:
             print(USAGE_STR)

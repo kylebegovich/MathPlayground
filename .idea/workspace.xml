@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2d5845-3a9a-4a24-8114-af5139b0292d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collatz.py" afterPath="$PROJECT_DIR$/Collatz.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="Collatz.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Collatz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-723">
-              <caret line="118" column="14" lean-forward="false" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
+            <state relative-caret-position="556">
+              <caret line="149" column="54" lean-forward="true" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#107#235#0" expanded="false" />
@@ -32,11 +31,11 @@
                 <element signature="e#1547#1655#0" expanded="false" />
                 <element signature="e#1683#1776#0" expanded="false" />
                 <element signature="e#1808#1905#0" expanded="false" />
-                <element signature="e#2921#3197#0" expanded="false" />
-                <element signature="e#3323#3877#0" expanded="false" />
-                <element signature="e#3931#5138#0" expanded="false" />
-                <element signature="e#5204#5862#0" expanded="false" />
-                <element signature="e#5894#6381#0" expanded="false" />
+                <element signature="e#3663#3939#0" expanded="false" />
+                <element signature="e#4065#4619#0" expanded="false" />
+                <element signature="e#4673#5880#0" expanded="false" />
+                <element signature="e#5946#6604#0" expanded="false" />
+                <element signature="e#6636#7123#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -83,6 +82,8 @@
       <find>add_all_map</find>
       <find>iterate_through</find>
       <find>found_map</find>
+      <find>fancy_print_chain</find>
+      <find>_1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,6 +125,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,7 +137,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -354,8 +355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Collatz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-723">
-          <caret line="118" column="14" lean-forward="false" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
+        <state relative-caret-position="556">
+          <caret line="149" column="54" lean-forward="true" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#107#235#0" expanded="false" />
@@ -366,11 +367,11 @@
             <element signature="e#1547#1655#0" expanded="false" />
             <element signature="e#1683#1776#0" expanded="false" />
             <element signature="e#1808#1905#0" expanded="false" />
-            <element signature="e#2921#3197#0" expanded="false" />
-            <element signature="e#3323#3877#0" expanded="false" />
-            <element signature="e#3931#5138#0" expanded="false" />
-            <element signature="e#5204#5862#0" expanded="false" />
-            <element signature="e#5894#6381#0" expanded="false" />
+            <element signature="e#3663#3939#0" expanded="false" />
+            <element signature="e#4065#4619#0" expanded="false" />
+            <element signature="e#4673#5880#0" expanded="false" />
+            <element signature="e#5946#6604#0" expanded="false" />
+            <element signature="e#6636#7123#0" expanded="false" />
           </folding>
         </state>
       </provider>
