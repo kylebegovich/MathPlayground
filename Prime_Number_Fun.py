@@ -1,3 +1,5 @@
+import sys
+
 # --- generate prime numbers----------------------------------------------------------------------
 def prime_sieve(n):
     """
@@ -73,15 +75,27 @@ def find_sexys_from_primes(primes):
     return out_list
 
 
-def test(n):
-    primes = prime_sieve(2**n)
-    print(primes)
-    print("\nbreak\n")
-    # print(mersenne_prime_sieve(n))
+def palindromic_primes(primes):
+    return [p for p in primes if (p == int(str(p)[::-1]))]
 
+
+N = 12
+
+
+def test():
+    if any(s.isDigit() for s in sys.argv):
+        n = 
+    else:
+        n = N
+
+    primes = prime_sieve(2**n)
+    print("\nMersennes:\n", mersenne_prime_sieve(n))
+
+    print(primes)
     print("\nTwins:\n", find_twins_from_primes(primes))
     print("\nCousins:\n", find_cousins_from_primes(primes))
     print("\nSexys:\n", find_sexys_from_primes(primes))
+    print("\nPalindromics:\n", palindromic_primes(primes))
 
 
-test(12)
+test()

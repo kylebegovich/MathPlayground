@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2d5845-3a9a-4a24-8114-af5139b0292d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collatz.py" afterPath="$PROJECT_DIR$/Collatz.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Prime_Number_Fun.py" afterPath="$PROJECT_DIR$/Prime_Number_Fun.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Collatz.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Collatz.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Collatz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="149" column="54" lean-forward="true" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
+            <state relative-caret-position="-119">
+              <caret line="149" column="54" lean-forward="false" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#107#235#0" expanded="false" />
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Prime_Number_Fun.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Prime_Number_Fun.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Prime_Number_Fun.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+            <state relative-caret-position="437">
+              <caret line="86" column="12" lean-forward="true" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -98,8 +98,8 @@
         <option value="$PROJECT_DIR$/google.py" />
         <option value="$PROJECT_DIR$/Google Round 1/question1.py" />
         <option value="$PROJECT_DIR$/Euler.py" />
-        <option value="$PROJECT_DIR$/Prime_Number_Fun.py" />
         <option value="$PROJECT_DIR$/Collatz.py" />
+        <option value="$PROJECT_DIR$/Prime_Number_Fun.py" />
       </list>
     </option>
   </component>
@@ -125,7 +125,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,6 +136,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -345,18 +345,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Prime_Number_Fun.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Collatz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="149" column="54" lean-forward="true" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
+        <state relative-caret-position="-119">
+          <caret line="149" column="54" lean-forward="false" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#107#235#0" expanded="false" />
@@ -373,6 +365,14 @@
             <element signature="e#5946#6604#0" expanded="false" />
             <element signature="e#6636#7123#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prime_Number_Fun.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="86" column="12" lean-forward="true" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
