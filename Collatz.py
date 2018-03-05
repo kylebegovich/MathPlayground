@@ -163,6 +163,10 @@ def format_time(input_seconds):
     return base % (hours, minutes, seconds, millis)
 
 
+def pows_of_2_minus_n(n, lim):
+    return [i-n for i in [2**j for j in range(1, lim+1)] if (i-n > 0)]
+
+
 # --- generate prime numbers----------------------------------------------------------------------
 def prime_sieve(n):
     """
@@ -286,8 +290,7 @@ if __name__ == "__main__":
     if "-sv" in args:
         index = find_element_in_list("-sv", args)
         if index is not None and args[index+1].isdigit():
-            steps = fancy_print_chain_2(int(args[index+1]), collatz_step)
-            print("total steps =", steps)
+            print("total steps =", fancy_print_chain_2(int(args[index+1]), collatz_step))
         else:
             print(USAGE_STR)
         exit(0)
@@ -307,6 +310,15 @@ if __name__ == "__main__":
         # we only want to look at the primes, since their convergence is a little more wonky
         main(prime_sieve(2 ** L))
         exit(0)
+
+    if "-faust" in args:
+        twos = pows_of_2_minus_n(2, L)
+        threes = pows_of_2_minus_n(3, L)
+        both = list(set().union(twos, threes))
+        print(twos, threes, both)
+        main(sorted(both))
+        exit(0)
+
     if len(args) == 3:
         main(range(1, 2 ** L))
         exit(0)
