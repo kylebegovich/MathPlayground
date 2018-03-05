@@ -83,8 +83,9 @@ N = 12
 
 
 def test():
-    if any(s.isDigit() for s in sys.argv):
-        n = 
+    args = sys.argv
+    if len(args) > 1:
+        n = int(args[1])
     else:
         n = N
 
