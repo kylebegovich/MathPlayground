@@ -287,6 +287,15 @@ if __name__ == "__main__":
         print("\n", ADDITIONAL_HELP_MSG, "\n", USAGE_STR)
         exit(0)
 
+    if "-ij" in args:
+        index = find_element_in_list("-ij", args)
+        if index is not None and args[index+1].isdigit() and args[index+2].isdigit():
+            val = (2**int(args[index+1]) - int(args[index+2]))
+            print("total steps =", fancy_print_chain_2(val, collatz_step))
+        else:
+            print(USAGE_STR)
+        exit(0)
+
     if "-sv" in args:
         index = find_element_in_list("-sv", args)
         if index is not None and args[index+1].isdigit():
