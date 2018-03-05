@@ -314,9 +314,10 @@ if __name__ == "__main__":
     if "-faust" in args:
         twos = pows_of_2_minus_n(2, L)
         threes = pows_of_2_minus_n(3, L)
-        both = list(set().union(twos, threes))
-        print(twos, threes, both)
-        main(sorted(both))
+        fours = pows_of_2_minus_n(4, L)
+        fives = pows_of_2_minus_n(5, L)
+        collected = list(set().union(twos, threes, fours, fives))
+        main(sorted(collected))
         exit(0)
 
     if len(args) == 3:

@@ -19,8 +19,8 @@
       <file leaf-file-name="Collatz.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Collatz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="318" column="25" lean-forward="false" selection-start-line="318" selection-start-column="25" selection-end-line="318" selection-end-column="25" />
+            <state relative-caret-position="467">
+              <caret line="317" column="35" lean-forward="false" selection-start-line="317" selection-start-column="35" selection-end-line="317" selection-end-column="35" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#107#235#0" expanded="false" />
@@ -348,8 +348,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Collatz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="318" column="25" lean-forward="false" selection-start-line="318" selection-start-column="25" selection-end-line="318" selection-end-column="25" />
+        <state relative-caret-position="467">
+          <caret line="317" column="35" lean-forward="false" selection-start-line="317" selection-start-column="35" selection-end-line="317" selection-end-column="35" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#107#235#0" expanded="false" />
