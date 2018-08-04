@@ -1,0 +1,55 @@
+It stands to show that there are infinitely many deletable primes.
+
+Note: this is being conducted in base-10 arithmetic,
+  operations of removing, appending, or prepending digits depend on the base,
+  and there is a distinct dependency in this proof on base-10 operations
+
+First, define a deletable prime as a prime number that maintains the following recursive property:
+  (1) The number is prime
+  (2) Either:
+    (A) This number is a single digit prime (2, 3, 5, or 7)
+    OR (B) There exists a digit of this prime number such that when you remove that
+          digit, the resulting number is a deletable prime
+
+An example of a deletable prime is 87253.
+  87253 is itself prime,
+    when you remove the 2, 8753 is also prime
+    when you remove the 7, 853 is also prime
+    when you remove the 8, 53 is also prime
+    when you remove the 3, 5 is also prime
+    5 is a single digit prime, so it is a deletable prime.
+  Since 87253 was both prime, and recursively composed of deletable primes
+
+First, we note that there are elements in the set of prime numbers that are NOT in the set of deletable primes:
+  For example, 19 is a prime number. However, it is not a single digit, nor does it hold property (B)
+    If you were to remove the digit 1, the resulting number, 9, is not prime
+    If you were to remove the digit 9, the resulting number, 1, is not prime
+    Therefore, 19 is in the set of primes, but not in the set of deletable primes
+  However, there are not any elements of the set of deletable primes that are not themselves included in the set of primes
+    This is by definition, as one of the criterions for being a deletable prime is being prime
+  Therefore, the set of deletable primes is a proper subset of the set of primes.
+Given that the cardinality of the set of all primes is countably infinite,
+  the cardinality of the set of deletable primes is either countably infinite or finite.
+
+
+Now, we attempt to construct the set of all deletable primes.
+  First, we start with the set of all single-digit primes, {2, 3, 5, 7},
+    as these are deletable primes by definition. We will call this set DP1
+  Next, we create a set of all 2-digit numbers that are constructed by
+    appending or prepending a digit to elements of DP1, not including leading 0's:
+      That is, {12, 22, 32, 42, 52,... 20, 21, 23, 24, 25,... 13, 33, 43,... 30, 31,..., 79}
+      The cardinality of this set, before removing repeats, is 19*|DP1| = 19*4 = 76.
+        However, when prepending or appending elements of the current set, you count that value twice
+          For example, when prepending and appending 2 to 2, 22 should only be counted once, but it is currently counted twice
+        So, to address the disparity, we remove the square of the previous cardinality,
+          that is, the cardinality of our new set is 19*|DP1| - |DP1|^2 = 19*4 - 4^2 = 60
+      The cardinality of this new set is 60.
+    We now reduce this set down to only include the elements that are deletable primes.
+    This set is as follows:
+      {13, 17, 23, 29, 31, 37, 43, 47, 53, 59, 67, 71, 73, 79, 83, 97}
+      <diligence to be done on proving the validity of this set>
+      We will name this set DP2
+  Next, we create a set of all 3-digit numbers that are constructed, similarly,
+    by appending or prepending a digit to elements of DP2, not including leading 0's:
+      That is, {113, 213, 313, ... 978, 979}
+      The cardinality of this set is 
