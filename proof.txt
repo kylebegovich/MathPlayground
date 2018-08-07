@@ -41,8 +41,10 @@ Now, we attempt to construct the set of all deletable primes.
       The cardinality of this set, before removing repeats, is 19*|DP1| = 19*4 = 76.
         However, when prepending or appending elements of the current set, you count that value twice
           For example, when prepending and appending 2 to 2, 22 should only be counted once, but it is currently counted twice
+
         So, to address the disparity, we remove the square of the previous cardinality,
           that is, the cardinality of our new set is 19*|DP1| - |DP1|^2 = 19*4 - 4^2 = 60
+
       The cardinality of this new set is 60.
     We now reduce this set down to only include the elements that are deletable primes.
     This set is as follows:
@@ -52,4 +54,6 @@ Now, we attempt to construct the set of all deletable primes.
   Next, we create a set of all 3-digit numbers that are constructed, similarly,
     by appending or prepending a digit to elements of DP2, not including leading 0's:
       That is, {113, 213, 313, ... 978, 979}
-      The cardinality of this set is 
+      The cardinality of this set, before removing repeats, is 19*|DP2| = 304.
+        However, we have repeats to deal with here too.
+        The way we remove these repeats is to count the number of
