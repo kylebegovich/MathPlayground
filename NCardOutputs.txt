@@ -1,0 +1,99 @@
+One Card Games
+(0, 0) expects 0 a +  0 b
+(0, 1) expects 1 a +  0 b
+(1, 0) expects -1 a +  0 b
+(1, 1) expects 0 a +  0 b
+
+Two Card Games
+(0, 0) expects 0 a +  0 b
+(0, 1) expects 2 a +  -1 b
+(0, 2) expects 4 a +  0 b
+(1, 0) expects -2 a +  1 b
+(1, 1) expects 0 a +  0 b
+(1, 2) expects 1 a +  0 b
+(2, 0) expects -4 a +  0 b
+(2, 1) expects -1 a +  0 b
+(2, 2) expects 0 a +  0 b
+
+Three Card Games
+(0, 0) expects 0 a +  0 b
+(0, 1) expects 3 a +  -2 b
+(0, 2) expects 6 a +  -2 b
+(0, 3) expects 9 a +  0 b
+(1, 0) expects -3 a +  2 b
+(1, 1) expects 0 a +  0 b
+(1, 2) expects 2 a +  -1 b
+(1, 3) expects 4 a +  0 b
+(2, 0) expects -6 a +  2 b
+(2, 1) expects -2 a +  1 b
+(2, 2) expects 0 a +  0 b
+(2, 3) expects 1 a +  0 b
+(3, 0) expects -9 a +  0 b
+(3, 1) expects -4 a +  0 b
+(3, 2) expects -1 a +  0 b
+(3, 3) expects 0 a +  0 b
+
+Four Card Games
+(0, 0) expects 0 a +  0 b
+(0, 1) expects 4 a +  -3 b
+(0, 2) expects 8 a +  -4 b
+(0, 3) expects 12 a +  -3 b
+(0, 4) expects 16 a +  0 b
+(1, 0) expects -4 a +  3 b
+(1, 1) expects 0 a +  0 b
+(1, 2) expects 3 a +  -2 b
+(1, 3) expects 6 a +  -2 b
+(1, 4) expects 9 a +  0 b
+(2, 0) expects -8 a +  4 b
+(2, 1) expects -3 a +  2 b
+(2, 2) expects 0 a +  0 b
+(2, 3) expects 2 a +  -1 b
+(2, 4) expects 4 a +  0 b
+(3, 0) expects -12 a +  3 b
+(3, 1) expects -6 a +  2 b
+(3, 2) expects -2 a +  1 b
+(3, 3) expects 0 a +  0 b
+(3, 4) expects 1 a +  0 b
+(4, 0) expects -16 a +  0 b
+(4, 1) expects -9 a +  0 b
+(4, 2) expects -4 a +  0 b
+(4, 3) expects -1 a +  0 b
+(4, 4) expects 0 a +  0 b
+
+Five Card Games
+(0, 0) expects 0 a +  0 b
+(0, 1) expects 5 a +  -4 b
+(0, 2) expects 10 a +  -6 b
+(0, 3) expects 15 a +  -6 b
+(0, 4) expects 20 a +  -4 b
+(0, 5) expects 25 a +  0 b
+(1, 0) expects -5 a +  4 b
+(1, 1) expects 0 a +  0 b
+(1, 2) expects 4 a +  -3 b
+(1, 3) expects 8 a +  -4 b
+(1, 4) expects 12 a +  -3 b
+(1, 5) expects 16 a +  0 b
+(2, 0) expects -10 a +  6 b
+(2, 1) expects -4 a +  3 b
+(2, 2) expects 0 a +  0 b
+(2, 3) expects 3 a +  -2 b
+(2, 4) expects 6 a +  -2 b
+(2, 5) expects 9 a +  0 b
+(3, 0) expects -15 a +  6 b
+(3, 1) expects -8 a +  4 b
+(3, 2) expects -3 a +  2 b
+(3, 3) expects 0 a +  0 b
+(3, 4) expects 2 a +  -1 b
+(3, 5) expects 4 a +  0 b
+(4, 0) expects -20 a +  4 b
+(4, 1) expects -12 a +  3 b
+(4, 2) expects -6 a +  2 b
+(4, 3) expects -2 a +  1 b
+(4, 4) expects 0 a +  0 b
+(4, 5) expects 1 a +  0 b
+(5, 0) expects -25 a +  0 b
+(5, 1) expects -16 a +  0 b
+(5, 2) expects -9 a +  0 b
+(5, 3) expects -4 a +  0 b
+(5, 4) expects -1 a +  0 b
+(5, 5) expects 0 a +  0 b

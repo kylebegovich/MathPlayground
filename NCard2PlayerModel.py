@@ -79,9 +79,15 @@ def print_expectancies(n):
         # print(tupe, strat)
         print(strat, "expects", tupe[0], "a + ", tupe[1], "b")
 
+print_expectancies(1)
+print('\n')
+print_expectancies(2)
+print('\n')
 print_expectancies(3)
 print('\n')
 print_expectancies(4)
+print('\n')
+print_expectancies(5)
 
 # print()
 # for line in function(3): # TODO check for 3,3 hand
