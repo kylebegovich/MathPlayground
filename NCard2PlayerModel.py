@@ -1,4 +1,23 @@
-from itertools import product
+from itertools import product, combinations
+import numpy as np
+
+
+def solve(expectancies, cutoffs):
+    # print(expectancies, cutoffs)
+    a = np.array(expectancies)
+    # print('a = ', a)
+    b = np.array(cutoffs)
+    # print('b = ', b)
+    try:
+        x = np.linalg.solve(a, b)
+    except:
+        return None
+    # print('x = ', x)
+    return x
+
+
+# print(solve([(3, 1), (1, 2)], [100, 100]))
+# print()
 
 def function(n):
     one_to_n = list([i for i in range(1, n + 1)])
@@ -79,19 +98,40 @@ def print_expectancies(n):
         # print(tupe, strat)
         print(strat, "expects", tupe[0], "a + ", tupe[1], "b")
 
-print_expectancies(1)
-print('\n')
-print_expectancies(2)
-print('\n')
-print_expectancies(3)
-print('\n')
-print_expectancies(4)
-print('\n')
-print_expectancies(5)
+def print_opposite_expectancies(n):
+    output = function(n)
+    for col in range(1, ((n+1)**2) + 1):
+        tupe = output[-1][col]
+        strat = output[0][col]
+        # print(tupe, strat)
+        print(strat, "expects", -1*tupe[0], "a + ", -1*tupe[1], "b")
+
+print_opposite_expectancies(3)
+
+
+def best_response(n):
+    table = function(n)
+    for line in table:
+        print(line)
+    print()
+    for i in range(1, (n+1)**2 + 1, n+1):
+        print('\n', table[0][i][0])
+        for pair in combinations(range(n+1), 2):
+            # print(i, pair, ' ', pair[0]+i, pair[1]+i)
+            print(table[0][i+pair[0]], table[0][i+pair[1]])
+            # print([table[-1][pair[0]+i], table[-1][pair[1]+i]])
+            sol = solve([table[-1][pair[0]+i], table[-1][pair[1]+i]], [1, 1])
+            if sol is not None:
+                print(sol, table[-1][pair[0]+i], table[-1][pair[1]+i])
+            else:
+                print("no solution", table[-1][pair[0]+i], table[-1][pair[1]+i])
+
+
+best_response(3)
 
 # print()
-# for line in function(3): # TODO check for 3,3 hand
+# for line in function(3):
     # print(line)
 # print()
-# for line in function(4):
-#     print(line)
+# output = function(3)
+# [print(output[i][10]) for i in range(((3+1)**2) + 1)]
